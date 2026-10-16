@@ -1,9 +1,9 @@
 name: ChunkMobChallenge
-version: '1.0.0'
+version: '${version}'
 main: dev.playmonkeei.chunkmobchallenge.ChunkMobChallengePlugin
 api-version: '26.1'
 author: PlayMonkeei
-description: Sessionübergreifende Chunk-Mob-Challenge für Paper 26.1 und 26.2
+description: Sessionübergreifende Chunk-Mob-Challenge für Paper 26.1.x, 26.2 und 26.3
 commands:
   chunkchallenge:
     description: Verwaltet die Chunk Mob Challenge

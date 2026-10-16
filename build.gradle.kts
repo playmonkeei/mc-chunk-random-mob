@@ -3,10 +3,11 @@ plugins {
 }
 
 group = "dev.playmonkeei"
-version = "1.0.0"
+version = "1.1.0"
 
+// Compile the shipped JAR against the oldest supported Paper API.
 val paperApiVersion = providers.gradleProperty("paperApiVersion")
-    .orElse("26.1.2.build.74-stable")
+    .orElse("26.1.1.build.29-alpha")
 
 repositories {
     mavenCentral()
@@ -32,4 +33,17 @@ tasks.withType<JavaCompile>().configureEach {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.processResources {
+    inputs.property("version", project.version)
+    filesMatching("plugin.yml") {
+        expand("version" to project.version)
+    }
+}
+
+tasks.register("printPluginJar") {
+    doLast {
+        println(tasks.jar.get().archiveFile.get().asFile.absolutePath)
+    }
 }

@@ -1,369 +1,383 @@
 <div align="center">
 
-# Chunk Mob Challenge
+# ⚔️ Chunk Mob Challenge
 
-### Besiege in jedem Chunk einen zufälligen Mob
+### Jeder neue Chunk bringt einen neuen Gegner. Wie weit kommt ihr?
+
+Ein zufälliger Mob, eine 16×16-Arena und ein Ziel: **Besiegt den echten Enderdrachen.**<br>
+Spielt allein oder mit Freunden – an einem Abend oder über mehrere Streams hinweg.
 
 <p>
-  <a href="#kompatibilität"><img alt="Minecraft 26.1.2 und 26.2" src="https://img.shields.io/badge/Minecraft-26.1.2%20%7C%2026.2-62B47A?style=for-the-badge&logo=minecraft&logoColor=white"></a>&nbsp;&nbsp;<a href="https://papermc.io/"><img alt="Paper Server" src="https://img.shields.io/badge/Server-Paper-2C2E35?style=for-the-badge"></a>&nbsp;&nbsp;<a href="#voraussetzungen"><img alt="Java 25" src="https://img.shields.io/badge/Java-25-E76F00?style=for-the-badge&logo=openjdk&logoColor=white"></a>&nbsp;&nbsp;<a href="#kompatibilität"><img alt="Status Beta" src="https://img.shields.io/badge/Status-Beta-F2B134?style=for-the-badge"></a>
+  <a href="#kompatibilitaet"><img alt="Minecraft Java 26.1.x, 26.2 und 26.3" src="https://img.shields.io/badge/Minecraft_Java-26.1.x%20%7C%2026.2%20%7C%2026.3-62B47A?style=for-the-badge"></a>
+  <a href="https://papermc.io/downloads/paper/"><img alt="Für Paper-Server" src="https://img.shields.io/badge/Server-Paper-2C2E35?style=for-the-badge"></a>
+  <img alt="Java 25 erforderlich" src="https://img.shields.io/badge/Java-25-E76F00?style=for-the-badge">
+  <img alt="Solo und Koop" src="https://img.shields.io/badge/Spielmodus-Solo%20%26%20Koop-7C6AE6?style=for-the-badge">
 </p>
 
-**Betritt einen Chunk, besiege seinen zufälligen Gegner und kämpfe dich<br>
-bis zum echten Enderdragon vor – über beliebig viele Server-Sessions hinweg.**
+**[⬇️ Plugin herunterladen](https://github.com/playmonkeei/mc-chunk-random-mob/releases/latest)**
+&nbsp;·&nbsp; **[🚀 Schnellstart](#schnellstart)**
+&nbsp;·&nbsp; **[⌨️ Befehle](#befehle)**
+&nbsp;·&nbsp; **[🐛 Fehler melden](https://github.com/playmonkeei/mc-chunk-random-mob/issues/new/choose)**
 
 </div>
 
-> [!IMPORTANT]
-> Das Plugin befindet sich noch in der Beta-Phase. Sichere vor einem längeren
-> Durchlauf immer Welt und Plugin-Daten gemeinsam.
+---
 
-## Was ist die Chunk Mob Challenge?
+## 🎮 Was euch erwartet
 
-Die Chunk Mob Challenge verwandelt jeden neu betretenen Chunk in eine kleine
-Arena. Sobald eine Runde beginnt, erscheint ein zufälliger Mob und eine
-individuelle Worldborder schließt die Teilnehmer im 16×16-Blöcke großen Chunk
-ein. Erst nach dem Tod des Challenge-Mobs öffnet sich der Weg in den nächsten
-Chunk.
+Betretet einen neuen Chunk und stellt euch seinem zufälligen Gegner. Eine
+persönliche Worldborder hält euch in der Arena, bis der Challenge-Mob besiegt
+ist. Danach entscheidet ihr selbst, wohin es weitergeht.
 
-Ein Run kann allein oder kooperativ gespielt werden. Mehrere Spieler dürfen
-dieselbe Runde bestreiten oder sich nach einem Sieg auf unterschiedliche Chunks
-und parallele Kämpfe verteilen. Die aktive Spielzeit, Positionen, Runden,
-Mobzustände und Statistiken bleiben über Logout und Serverneustart erhalten.
+| | Euer Run |
+| --- | --- |
+| 🎲 **Jeder Chunk überrascht** | Alle Mobs im aktiven Pool haben dieselbe Chance – von der Kuh bis zum Wither. |
+| 🛠️ **Eure Mob-Auswahl** | Entscheidet selbst, welche Mobs in eurem Run vorkommen dürfen. [So passt ihr die Auswahl an ↓](#mob-auswahl) |
+| 🤝 **Gemeinsam oder aufteilen** | Kämpft im selben Chunk zusammen oder eröffnet nach einem Sieg getrennte Runden. |
+| 🧭 **Euer Tempo** | Bleibt im sicheren Chunk zurück oder wagt euch direkt in den nächsten Kampf. |
+| 💾 **Über mehrere Sessions** | Positionen, Gegner, Fortschritt und Statistiken bleiben nach einem Serverneustart erhalten. |
+| ⏱️ **Nur aktive Spielzeit** | Wenn niemand aus dem Run online ist, pausiert die Challenge-Zeit. |
+| 🐉 **Ein klares Ziel** | Gewonnen ist der Run, sobald ihr den echten Enderdrachen im End besiegt. |
 
-Das endgültige Ziel ist der echte, von Vanillas `DragonBattle` verwaltete
-Enderdragon. Ein zufällig als Challenge-Mob gezogener Enderdragon zählt nur als
-gewöhnliche Chunk-Runde.
+Bereits mehrfach von verschiedenen Streamern auf **Minecraft 26.2** problemlos
+gespielt.
 
-## Die wichtigsten Regeln
+<a id="schnellstart"></a>
 
-- Beim Start nehmen alle aktuell verbundenen Spieler gemeinsam teil.
-- Ein neuer Chunk erzeugt genau eine Runde mit genau einem zufälligen Mob.
-- Spieler im selben aktiven Chunk teilen Mob und Bossbar.
-- Parallele Runden in unterschiedlichen Chunks sind möglich.
-- Während des Kampfes verhindert die Worldborder das Verlassen des Chunks.
-- Enderperlen, Chorusfrüchte, Portale und fremde Teleports umgehen den Lock nicht.
-- Jede echte Todesursache des Challenge-Mobs zählt – auch Feuer, Ertrinken,
-  Ersticken oder eine Creeper-Selbstexplosion.
-- Natürlich vorkommende Mobs bleiben uneingeschränkt.
-- Wasser-Mobs dürfen an Land erscheinen und dort auf natürliche Weise sterben.
-- In Hardcore beendet der Tod eines Teilnehmers den gesamten Run.
-- Ohne Hardcore verlässt nur der gestorbene Spieler seine bisherige Runde und
-  beginnt nach dem Respawn im Respawn-Chunk neu.
-- Gewonnen ist der Run ausschließlich nach dem Tod des echten Enderdrachens.
+## 🚀 In wenigen Minuten losspielen
+
+### Das braucht ihr
+
+| Voraussetzung | Für euren Server |
+| --- | --- |
+| **Minecraft Java Edition** | 26.1.1, 26.1.2, 26.2 oder 26.3 |
+| **Serversoftware** | [Paper herunterladen](https://papermc.io/downloads/paper/) |
+| **Java** | Version 25 auf dem Server |
+| **Plugin** | JAR aus dem [aktuellen GitHub Release](https://github.com/playmonkeei/mc-chunk-random-mob/releases/latest) |
+
+Auf euren Clients ist **keine zusätzliche Mod erforderlich**. Verbindet euch mit
+der passenden Minecraft-Version mit eurem Paper-Server.
+
+### Installieren und starten
+
+1. Richtet euren Paper-Server ein, startet ihn einmal und akzeptiert die
+   Minecraft-EULA in `eula.txt`.
+2. Stoppt den Server und legt die heruntergeladene Plugin-JAR in seinen Ordner
+   `plugins`.
+3. Startet den Server wieder. In der Konsole erscheint
+   `ChunkMobChallenge ist bereit.`.
+4. Verbindet euch alle mit dem Server. Der Spielleiter benötigt Operatorrechte
+   oder die passenden [Berechtigungen](#berechtigungen).
+5. Stellt euch an euren gewünschten Startpunkt. Der Spielleiter startet **im
+   Spiel** mit:
+
+   ```text
+   /cc start
+   ```
+
+Alle bereits verbundenen Spieler werden zum Spielleiter teleportiert und
+beginnen gemeinsam in seinem Chunk.
 
 > [!TIP]
-> Nametags, Leuchtkontur und Bossbars lassen sich während des Runs unabhängig
-> voneinander ein- und ausschalten. Die Auswahl wird gespeichert.
+> Verwendet eine Welt, in der der ursprüngliche Enderdrache noch lebt. Ist er
+> bereits besiegt, lässt sich dort kein neuer Run starten.
 
-## Voraussetzungen
+<a id="spielregeln"></a>
 
-- Minecraft Java **26.1.2** oder **26.2**
-- ein [Paper-Server](https://papermc.io/downloads/paper/)
-- **Java 25**
-- das Plugin-JAR aus den
-  [GitHub Releases](https://github.com/playmonkeei/mc-chunk-random-mob/releases)
+## 🧭 So läuft euer Run
 
-Folia, Spigot, Vanilla, Fabric, Forge und NeoForge werden nicht als
-Serverplattform unterstützt. Client-Mods sind grundsätzlich möglich, solange
-sie das normale Multiplayer-Verhalten nicht verändern.
+**Chunk betreten → Gegner besiegen → Border öffnet sich → weiterziehen.**
 
-## Installation
+Im selben umkämpften Chunk teilt ihr euch einen Gegner und seine
+Lebenspunkteanzeige. Nach dem Sieg könnt ihr zusammenbleiben oder in
+unterschiedlichen Chunks weiterspielen. Wer später einen bereits umkämpften
+Chunk betritt, steigt in dessen laufende Runde ein.
 
-### 1. Paper vorbereiten
+| Situation | Das passiert |
+| --- | --- |
+| 🧱 Ihr wollt während des Kampfes aus dem Chunk | Die Worldborder hält euch zurück. Auch Enderperlen, Chorusfrüchte, Portale und fremde Teleports umgehen den Lock nicht. |
+| 🔥 Der Gegner stirbt durch die Umgebung | Die Runde zählt als gewonnen – auch bei Feuer, Ertrinken, Ersticken oder einer Creeper-Selbstexplosion. |
+| 🐄 Ihr begegnet normalen Mobs | Sie gehören nicht zur Challenge-Runde und bleiben uneingeschränkt. |
+| 💀 Ein Spieler stirbt im normalen Modus | Er beginnt nach dem Respawn eine neue Runde im Respawn-Chunk. Die anderen können weiterspielen. |
+| ☠️ Ein Spieler stirbt in Hardcore | Der gesamte Run endet für alle Teilnehmer. |
+| 🐉 Ein zufälliger Challenge-Enderdrache erscheint | Er zählt als normale Chunk-Runde. Für den Gesamtsieg müsst ihr weiterhin den echten Enderdrachen im End besiegen. |
 
-Richte einen Paper-Server für Minecraft 26.1.2 oder 26.2 ein und starte ihn
-einmal. Akzeptiere anschließend die Minecraft-EULA in `eula.txt`.
+Nach eurem Sieg seht ihr die **aktive Spielzeit, besiegten Challenge-Mobs,
+gestarteten Runden und Todesfälle**.
 
-Für einen Hardcore-Run muss bereits bei der Erzeugung der Welt in
-`server.properties` stehen:
+<a id="befehle"></a>
+
+## ⌨️ Eure Befehle
+
+Verwendet `/cc` oder den vollständigen Namen `/chunkchallenge`.
+Die Befehle sind standardmäßig für Operatoren freigegeben.
+
+| Befehl | Damit könnt ihr … |
+| --- | --- |
+| `/cc start` | einen gemeinsamen Run starten; muss im Spiel ausgeführt werden. |
+| `/cc status` | Spielzeit, Statistiken, Anzeigeoptionen und die eigene Runde ansehen. |
+| `/cc tags enable` · `/cc tags disable` | sichtbare Namen der Challenge-Mobs ein- oder ausschalten. |
+| `/cc glowing enable` · `/cc glowing disable` | die Leuchtkontur der Challenge-Mobs ein- oder ausschalten. |
+| `/cc bossbar enable` · `/cc bossbar disable` | die Lebenspunkteanzeigen der Challenge-Mobs ein- oder ausschalten. |
+| `/cc reload` | eure geänderte Mobliste für zukünftige Runden laden. |
+| `/cc stop` | den aktuellen Run **beenden und löschen**. |
+
+Bei einem neuen Run sind **Nametags und Leuchtkonturen aus**, die **Bossbars
+an**. Eure Auswahl gilt für den Run und wird gespeichert. Der Bossbar-Schalter
+gilt auch für die Anzeigen eines Challenge-Withers oder Challenge-Enderdrachens.
+
+<a id="berechtigungen"></a>
+
+<details>
+<summary>🔑 Berechtigungen für euren Spielleiter einrichten</summary>
+
+Wenn ihr keine Operatorrechte vergeben möchtet, könnt ihr die Rechte über euer
+Berechtigungsplugin einzeln freigeben.
+
+| Permission | Erlaubt |
+| --- | --- |
+| `chunkchallenge.admin` | alle folgenden Befehle |
+| `chunkchallenge.start` | Run starten |
+| `chunkchallenge.stop` | Run beenden und löschen |
+| `chunkchallenge.status` | Status ansehen |
+| `chunkchallenge.reload` | Mobliste neu laden |
+| `chunkchallenge.tags` | Nametags umschalten |
+| `chunkchallenge.glowing` | Leuchtkonturen umschalten |
+| `chunkchallenge.bossbar` | Bossbars umschalten |
+
+</details>
+
+## ⏸️ Heute aufhören, morgen weiterspielen
+
+Beendet euren Server nach der Session mit **`stop` in der Serverkonsole**.
+Beim nächsten Start und Login setzt ihr euren Run fort. Positionen, Gegner,
+Lebenspunkte, Statistiken und Anzeigeoptionen bleiben erhalten; die Zeit
+zwischen den Sessions zählt nicht mit.
+
+> [!WARNING]
+> **`stop` pausiert euren Run durch einen sauberen Serverstopp.**
+> **`/cc stop` beendet und löscht euren Run.** Nutzt diesen Plugin-Befehl nur,
+> wenn ihr die Challenge wirklich abbrechen möchtet.
+
+## 🛠️ Euren Server vorbereiten und anpassen
+
+<a id="mob-auswahl"></a>
+
+<details>
+<summary>🎲 Selbst festlegen, welche Mobs vorkommen</summary>
+
+Beim ersten Pluginstart entsteht die Datei
+`plugins/ChunkMobChallenge/mobs.yml`. Sie enthält die auf eurer Serverversion
+verfügbaren, spawnbaren Mobs. Jeder Eintrag hat dieselbe Wahrscheinlichkeit –
+auch Wither, Warden, Giant, Illusioner und Enderdrache.
+
+Entfernt die Einträge der Mobs, die ihr nicht spielen möchtet, und führt danach
+`/cc reload` aus. Bereits aktive oder pausierte Runden behalten ihren Gegner.
+
+- Entfernte Einträge werden nicht automatisch wieder ergänzt.
+- Auch nach einem Minecraft-Update werden neue Mobs nicht automatisch in eine
+  bestehende Liste eingetragen.
+- Ungültige und doppelte Einträge werden mit einer Konsolenwarnung ignoriert.
+  Ist kein gültiger Mob übrig, bleibt der bisherige Pool aktiv.
+
+**Die vollständige Liste wiederherstellen:** Stoppt den Server, löscht nur
+`plugins/ChunkMobChallenge/mobs.yml` und startet ihn erneut. Die Datei wird
+passend zu eurer installierten Minecraft-Version neu erzeugt.
+
+</details>
+
+<details>
+<summary>☠️ Einen Hardcore-Run vorbereiten</summary>
+
+Legt für Hardcore eine frische Welt an. Bereits **vor der ersten Erzeugung der
+Welt** müssen in `server.properties` diese Werte stehen:
 
 ```properties
 hardcore=true
 difficulty=hard
 ```
 
-Das nachträgliche Aktivieren von Hardcore macht eine schon vorhandene normale
-Welt nicht zuverlässig zu einer Hardcore-Welt. Verwende dafür eine frisch
-erzeugte Welt.
+Das nachträgliche Umschalten einer vorhandenen normalen Welt aktiviert Hardcore
+nicht zuverlässig. Im Hardcore-Run beendet der Tod eines Teilnehmers die
+Challenge für alle.
 
-### 2. Plugin installieren
+</details>
 
-1. Stoppe den Server vollständig.
-2. Lade unter
-   [Releases](https://github.com/playmonkeei/mc-chunk-random-mob/releases)
-   das aktuelle Plugin-JAR herunter.
-3. Kopiere das JAR in den Ordner `plugins`.
-4. Starte den Server wieder.
-5. Prüfe in der Konsole, ob `ChunkMobChallenge ist bereit` erscheint.
-6. Erteile dem Spielleiter bei Bedarf Operatorrechte und starte mit `/cc start`.
+<details>
+<summary>💾 Euren Run sichern oder ein Backup wiederherstellen</summary>
 
-Der erste Start erzeugt automatisch:
+Sichert immer **Welt und Plugin-Daten gemeinsam**. Der Challenge-Zustand liegt
+in `plugins/ChunkMobChallenge/state.yml`; die Gegner selbst werden zusätzlich
+in den Weltdateien gespeichert.
 
-```text
-plugins/
-└── ChunkMobChallenge/
-    └── mobs.yml
-```
-
-Sobald ein Run gestartet wird, kommt der persistente Zustand hinzu:
-
-```text
-plugins/ChunkMobChallenge/state.yml
-```
-
-### Server starten
-
-Unter macOS und Linux beispielsweise:
-
-```bash
-java -Xms2G -Xmx2G -jar paper.jar --nogui
-```
-
-Unter Windows in PowerShell oder der Eingabeaufforderung:
-
-```bat
-java -Xms2G -Xmx2G -jar paper.jar --nogui
-```
-
-Kontrolliere bei mehreren installierten Java-Versionen vorher mit
-`java -version`, dass Java 25 verwendet wird.
-
-## Spielen
-
-### Run starten
-
-Der Spielleiter führt als Spieler aus:
-
-```text
-/cc start
-```
-
-Alle zu diesem Zeitpunkt verbundenen Spieler werden sicher zu ihm teleportiert
-und starten gemeinsam in seinem Chunk. Ist der ursprüngliche Enderdragon der
-Welt bereits besiegt, lehnt das Plugin einen neuen Run ab.
-
-### Chunk-Runden
-
-Besiegt den angezeigten Mob. Danach verschwinden Border und Bossbar für die
-Teilnehmer dieser Runde. Wer anschließend einen neuen Chunk betritt, startet
-dort sofort die nächste Runde.
-
-Spieler dürfen im sicheren Chunk zurückbleiben, gemeinsam folgen oder in
-unterschiedlichen Chunks parallele Runden eröffnen. Betritt jemand einen bereits
-umkämpften Chunk, tritt er der vorhandenen Runde bei; es entsteht kein zweiter
-Challenge-Mob.
-
-### Anzeigen anpassen
-
-```text
-/cc tags enable
-/cc tags disable
-/cc glowing enable
-/cc glowing disable
-/cc bossbar enable
-/cc bossbar disable
-```
-
-Nametags und Glowing sind bei einem neuen Run standardmäßig ausgeschaltet. Die
-Bossbar ist standardmäßig eingeschaltet. Der Bossbar-Schalter gilt auch für die
-Vanilla-Bossbars eines Challenge-Withers oder Challenge-Enderdrachens.
-
-### Stream pausieren und fortsetzen
-
-Ein normaler Serverstopp beendet die Challenge **nicht**. Beende Paper abends
-mit dem Konsolenbefehl:
-
-```text
-stop
-```
-
-Beim Herunterfahren speichert das Plugin unter anderem:
-
-- Spielerposition und Blickrichtung,
-- Welt, Chunk und zugeordnete Runde,
-- Mobtyp, UUID, Position und Lebenspunkte,
-- kritische Varianten- und Ausrüstungsdaten,
-- Todesfälle, Siege, Rundenzahl und aktive Spielzeit,
-- Nametag-, Glowing- und Bossbar-Einstellung.
-
-Beim nächsten Serverstart und Login wird derselbe Zustand fortgesetzt. Die Zeit
-zwischen den Sessions zählt nicht zur Challenge-Zeit.
-
-> [!WARNING]
-> `/cc stop` ist nicht dasselbe wie der Paper-Konsolenbefehl `stop`.
-> `/cc stop` beendet den laufenden Run bewusst und löscht dessen `state.yml`.
-
-### Challenge abschließen
-
-Der Run endet erfolgreich, sobald der echte Vanilla-Enderdragon stirbt. Das
-Plugin zeigt anschließend aktive Spielzeit, besiegte Challenge-Mobs, gestartete
-Runden und Todesfälle an. Borders, Bossbars, Projektilreste und
-Challenge-Markierungen werden entfernt.
-
-## Befehle
-
-Alle Befehle verwenden wahlweise `/chunkchallenge` oder den Alias `/cc`.
-
-| Befehl                         | Funktion                                                                  |
-| ------------------------------ | ------------------------------------------------------------------------- |
-| `/cc start`                    | Startet einen neuen Run; muss von einem Spieler ausgeführt werden.        |
-| `/cc stop`                     | Beendet und löscht den aktuell laufenden Run.                             |
-| `/cc status`                   | Zeigt Spielzeit, Statistiken, Anzeigeoptionen und die eigene Runde.       |
-| `/cc reload`                   | Lädt `mobs.yml` für zukünftige Runden neu.                                |
-| `/cc tags enable\|disable`    | Schaltet sichtbare Namen der Challenge-Mobs an oder aus.                  |
-| `/cc glowing enable\|disable` | Schaltet die Leuchtkontur der Challenge-Mobs an oder aus.                 |
-| `/cc bossbar enable\|disable` | Schaltet Plugin- und Vanilla-Bossbars der Challenge-Mobs an oder aus.     |
-
-Diese Befehle sind standardmäßig nur für Operatoren freigegeben.
-
-| Permission                   | Zweck                            |
-| ---------------------------- | -------------------------------- |
-| `chunkchallenge.start`       | Run starten                      |
-| `chunkchallenge.stop`        | Run beenden und State löschen    |
-| `chunkchallenge.status`      | Status anzeigen                  |
-| `chunkchallenge.reload`      | Mobpool neu laden                |
-| `chunkchallenge.tags`        | Mob-Nametags umschalten          |
-| `chunkchallenge.glowing`     | Mob-Glowing umschalten           |
-| `chunkchallenge.bossbar`     | Mob-Bossbars umschalten          |
-| `chunkchallenge.admin`       | Enthält alle aufgeführten Rechte |
-
-## Mobpool konfigurieren
-
-Beim ersten Start erzeugt das Plugin `plugins/ChunkMobChallenge/mobs.yml` aus
-allen Mob-EntityTypes, die auf der laufenden Paper-Version tatsächlich vorhanden
-und spawnbar sind. Alle Einträge besitzen dieselbe Wahrscheinlichkeit – auch
-Wither, Warden, Giant, Illusioner und Enderdragon.
-
-Einträge dürfen entfernt werden und werden nicht automatisch ergänzt. Nach einer
-Änderung lädt `/cc reload` die Datei neu. Bereits aktive oder pausierte Runden
-behalten ihren bisherigen Mobtyp.
-
-Unbekannte, doppelte oder ungeeignete Entity-Keys werden mit einer
-Konsolenwarnung ignoriert. Enthält die Datei keinen gültigen Mob, bleibt der
-bisherige Pool aktiv.
-
-Um den vollständigen Pool wiederherzustellen:
-
-1. Stoppe den Server.
-2. Lösche `plugins/ChunkMobChallenge/mobs.yml`.
-3. Starte den Server erneut.
-
-Das Plugin erzeugt daraufhin die zur installierten Minecraft-Version passende
-Standardliste neu.
-
-## Besondere Mobs
-
-- Challenge-Mobs despawnen nicht natürlich und bleiben im zugehörigen Chunk.
-- Flugmobs werden an der Chunkgrenze umgelenkt, statt dort dauerhaft
-  festzustecken.
-- Große Mobs werden aus Blöcken und unzugänglichen Bereichen gerettet.
-- Nether-Mobs erscheinen nicht unzugänglich auf dem Bedrockdach, wenn die Runde
-  darunter ausgelöst wurde.
-- Slime- und Magma-Cube-Nachkommen verlieren nach dem Rundensieg alle
-  Challenge-Markierungen.
-- Transformationen wie Zombie Villager zu Villager übernehmen die laufende
-  Runde, Lebenspunkteanzeige und Markierungen korrekt.
-- Challenge-Enderdrachen werden auf halbe Größe skaliert und über dem Chunk
-  gehalten. Eine eigene Zielsteuerung sorgt außerhalb eines Vanilla-DragonBattle
-  für sichtbare Drachenfeuerbälle und Atemwolken am Boden.
-- Wither und Enderdragon verwenden ihre Vanilla-Bossbar, sofern Paper sie
-  bereitstellt. Für einen Challenge-Enderdrachen ohne native Bossbar erzeugt das
-  Plugin genau eine Ersatz-Bossbar.
-
-## Backups und Wiederherstellung
-
-Der Pluginzustand liegt in:
-
-```text
-plugins/ChunkMobChallenge/state.yml
-```
-
-Die Challenge-Mobs selbst werden zusätzlich von Minecraft in den Weltdateien
-gespeichert. Sichere deshalb immer die Weltordner und den gesamten Ordner
-`plugins/ChunkMobChallenge` gemeinsam.
-
-### Sicheres Backup
-
-1. Beende Paper mit dem Konsolenbefehl `stop`.
-2. Sichere die zusammengehörigen Weltordner.
-3. Sichere den vollständigen Ordner `plugins/ChunkMobChallenge`.
-
-### Wiederherstellen
-
-1. Stoppe den Server vollständig.
-2. Stelle Weltordner und Pluginordner aus demselben Backup wieder her.
-3. Starte Paper erneut.
-4. Verbinde dich und kontrolliere `/cc status`.
+| Backup erstellen | Backup wiederherstellen |
+| --- | --- |
+| 1. Server mit `stop` herunterfahren. | 1. Server vollständig stoppen. |
+| 2. Alle zugehörigen Weltordner sichern. | 2. Weltordner aus dem Backup wiederherstellen. |
+| 3. Den gesamten Ordner `plugins/ChunkMobChallenge` sichern. | 3. Den Pluginordner aus **demselben Backup** wiederherstellen. |
+| | 4. Server starten, verbinden und `/cc status` prüfen. |
 
 Eine Welt und eine `state.yml` aus unterschiedlichen Zeitpunkten können zu
-fehlenden oder doppelt rekonstruierten Challenge-Mobs führen.
+fehlenden oder doppelt rekonstruierten Gegnern führen.
 
-## Lokale Entwicklung und Tests
+</details>
 
-Das Projekt verwendet Gradle mit Kotlin DSL. Die fertige JAR entsteht mit:
+<details>
+<summary>🖥️ Paper auf eurem eigenen Rechner starten</summary>
+
+Prüft mit `java -version`, ob Java 25 verwendet wird. Startet den Server im
+Ordner seiner Paper-JAR unter macOS, Linux oder Windows beispielsweise so:
+
+```text
+java -Xms2G -Xmx2G -jar paper.jar --nogui
+```
+
+Ersetzt `paper.jar` durch den Dateinamen eurer heruntergeladenen Paper-JAR.
+Der erste Pluginstart erzeugt `plugins/ChunkMobChallenge/mobs.yml`. Sobald ihr
+einen Run startet, kommt dessen gespeicherter Zustand in `state.yml` hinzu.
+
+</details>
+
+## ❓ Gut zu wissen
+
+<details>
+<summary>🤝 Können Freunde während eines laufenden Runs dazukommen?</summary>
+
+Ja. Neue Spieler, die während eines laufenden Runs beitreten, werden in die
+Challenge aufgenommen und nach Möglichkeit zu einem aktiven Teilnehmer
+teleportiert. Bereits bekannte Teilnehmer setzen ihren gespeicherten Zustand
+fort.
+
+</details>
+
+<details>
+<summary>🦑 Was passiert mit Wasser-Mobs, Flugmobs und großen Gegnern?</summary>
+
+- Wasser-Mobs können an Land erscheinen und dort natürlich sterben. Auch das
+  zählt als Rundensieg.
+- Challenge-Mobs despawnen nicht natürlich und bleiben in ihrem Chunk.
+- Flugmobs werden an der Chunkgrenze umgelenkt.
+- Große Gegner werden aus Blöcken und unzugänglichen Bereichen gerettet.
+- Nether-Mobs werden bei Bedarf vom Bedrockdach zurück in den Spielbereich
+  geholt, wenn die Runde darunter stattfindet.
+- Verwandelt sich ein Gegner, etwa ein Zombie Villager in einen Villager,
+  übernimmt die neue Form die laufende Runde.
+- Slime- und Magma-Cube-Nachkommen verlieren nach dem Rundensieg ihre
+  Challenge-Markierungen.
+- Challenge-Enderdrachen sind auf halbe Größe verkleinert, bleiben über der
+  Arena und können dort mit Drachenfeuerbällen und Atemwolken angreifen.
+- Wither und Enderdrache verwenden nach Möglichkeit ihre normale Bossbar.
+  Bei Bedarf erhält ein Challenge-Enderdrache eine Ersatzanzeige.
+
+</details>
+
+<a id="kompatibilitaet"></a>
+
+<details>
+<summary>🧩 Welche Minecraft-Versionen und Server werden unterstützt?</summary>
+
+Ein einziges Plugin-JAR unterstützt **Paper 26.1.x, 26.2 und 26.3 mit Java 25**.
+Neue Mobtypen erscheinen nur auf Versionen, die sie anbieten.
+
+| Minecraft / Paper-Build | Automatische Prüfungen | Gameplay-Erfahrung |
+| --- | --- | --- |
+| **26.1.1** · Build 29, Paper-Alpha | ✅ bestanden | vollständiger Spieltest noch offen |
+| **26.1.2** · Build 74 | ✅ bestanden | Solo, Persistenz, Hardcore und Koop getestet |
+| **26.2** · Build 134 | ✅ bestanden | mehrfach in Streams gespielt; eigener kompletter Solo-Run auf Build 121 |
+| **26.3** · Build 194 | ✅ bestanden | vollständiger Spieltest noch offen |
+
+Die automatischen Prüfungen umfassen API-Build, Unit-Tests, Pluginstart,
+Statusabfrage, Mobpool-Reload und sauberes Herunterfahren mit derselben
+Plugin-JAR. Die genauen Ergebnisse stehen in [`TESTING.md`](TESTING.md).
+
+Für 26.1/26.1.0 gibt es keinen separaten Paper-Download; die verfügbare
+26.1-Reihe beginnt bei 26.1.1. Dessen letzter Paper-Build ist als Alpha
+gekennzeichnet.
+
+Folia, Spigot, Vanilla, Fabric, Forge und NeoForge werden als Serverplattform
+nicht unterstützt. Client-Mods sind grundsätzlich möglich, solange sie das
+normale Multiplayer-Verhalten nicht verändern.
+
+</details>
+
+## 🐛 Etwas funktioniert nicht?
+
+Nutzt das [Formular für Fehlermeldungen](https://github.com/playmonkeei/mc-chunk-random-mob/issues/new/choose)
+und beschreibt kurz, was passiert ist und wie es sich wiederholen lässt.
+Hilfreich sind:
+
+- eure Minecraft-, Paper-, Plugin- und Java-Version,
+- die Ausgabe von `/cc status` und relevante Konsolenmeldungen,
+- der betroffene Mob und Chunk,
+- ein Screenshot bei Problemen mit Border, Nametags, Glowing oder Bossbar.
+
+Prüft vor dem Teilen von Logs oder `state.yml`, ob darin Spieler-UUIDs oder
+andere Informationen stehen, die ihr nicht veröffentlichen möchtet.
+
+## 🧰 Für Entwickler
+
+<details>
+<summary>🔧 Plugin selbst bauen und lokale Testserver starten</summary>
+
+Voraussetzung ist Java 25. Das Projekt verwendet Gradle mit Kotlin DSL und
+baut die gemeinsame JAR gegen die älteste unterstützte Paper-API, 26.1.1.
 
 ```bash
 ./gradlew build
 ```
 
-Sie liegt anschließend unter:
+Die fertige JAR liegt unter `build/libs/chunk-mob-challenge-1.1.0.jar`.
 
-```text
-build/libs/chunk-mob-challenge-1.0.0.jar
-```
-
-Die vorbereiteten Testserver für beide Zielversionen werden eingerichtet mit:
+**Lokale Testserver vorbereiten:**
 
 ```bash
 ./scripts/setup-test-servers.sh
 ```
 
-Danach lässt sich jeweils genau eine Version starten:
+Das Skript lädt alle vier gepinnten Paper-Versionen, prüft ihre SHA-256-Summen,
+baut das Plugin und kopiert es in die Testserver. Startet anschließend jeweils
+**eine** Version:
 
 ```bash
+./scripts/start-test-server.sh 26.1.1
 ./scripts/start-test-server.sh 26.1.2
 ./scripts/start-test-server.sh 26.2
+./scripts/start-test-server.sh 26.3
 ```
 
-Beide verwenden `localhost:25565` und dürfen deshalb nicht gleichzeitig laufen.
-Die lokale `server.properties` wird bei Bedarf aus der jeweiligen
-`server.properties.example` angelegt. Generierte Serverkonfigurationen und
-Zugangsdaten bleiben lokal und werden nicht mit Git versioniert.
-Die vollständigen praktischen Prüfschritte und Ergebnisse stehen in
-[`TESTING.md`](TESTING.md).
+Alle manuellen Testserver verwenden `localhost:25565`. Die lokale
+`server.properties` wird bei Bedarf aus `server.properties.example` angelegt.
+Generierte Konfigurationen und Zugangsdaten bleiben lokal.
 
-## Kompatibilität
+**Automatischer Servercheck ohne Minecraft-Client:**
 
-| Umgebung                                     | Status                                             |
-| -------------------------------------------- | -------------------------------------------------- |
-| Paper 26.2 Build 121 + Java 25 auf macOS     | ✅ kompletter Solo-Run und Gameplay getestet       |
-| Paper 26.1.2 Build 74 + Java 25 auf macOS    | ✅ Solo, Persistenz, Hardcore und Koop getestet     |
-| Paper 26.1.0 / 26.1.1                        | ⚠️ nicht als eigene Zielversion getestet           |
-| Folia / Spigot / Vanilla / Fabric / Forge    | ❌ nicht als Serverplattform unterstützt           |
+```bash
+./gradlew clean build
+python3 scripts/smoke-test-server.py 26.3 build/libs/chunk-mob-challenge-1.1.0.jar
+```
 
-Ein einziges Plugin-JAR unterstützt Paper 26.1.2 und 26.2. Neue Mobtypen aus
-26.2 werden ausschließlich zur Laufzeit entdeckt und erscheinen auf 26.1.2
-nicht im Pool.
+Zusätzlich benötigt ihr Python 3, `curl` und Zustimmung zu
+[Mojangs EULA](https://aka.ms/MinecraftEULA). Der Check akzeptiert die EULA für
+den Testserver und verwendet ausschließlich wegwerfbare Welten unter
+`build/smoke-servers/`.
 
-## Fehler melden
+GitHub Actions prüft jede Ziel-API und startet pro Version einen frischen
+Server mit der gegen 26.1.1 gebauten Release-JAR. Dieselben Prüfungen laufen
+vor Releases. Sie ersetzen keinen vollständigen Gameplay-Test.
 
-Bitte gib bei einem Fehler möglichst Folgendes an:
+| Weiterführend | Inhalt |
+| --- | --- |
+| [`TESTING.md`](TESTING.md) | manuelle Prüfschritte und bisherige Ergebnisse |
+| [`paper-versions.tsv`](test-servers/paper-versions.tsv) | gepinnte Builds und SHA-256-Prüfsummen |
+| [Paper Downloads-API](https://fill.papermc.io/v3/projects/paper) | offizielle Versionsdaten |
+| [Release Notes](docs/release-notes/) | Änderungen pro Pluginversion |
 
-- exakte Minecraft- und Paper-Version,
-- Ausgabe von `java -version`,
-- relevante Server-Konsolenmeldungen,
-- Ausgabe von `/cc status`,
-- aktueller Mob und Chunk,
-- Schritte, mit denen sich das Problem wiederholen lässt,
-- einen Screenshot, falls Border, Nametag, Glowing oder Bossbar betroffen sind.
-
-Veröffentliche keine vollständige `state.yml`, bevor du geprüft hast, ob sie
-Spieler-UUIDs oder andere Informationen enthält, die du nicht teilen möchtest.
+</details>
 
 ---
 
 <div align="center">
 
-**Viel Erfolg – und hoffentlich wartet im nächsten Chunk keine Wither-Runde.**
+**Viel Erfolg – und hoffentlich wartet im nächsten Chunk keine Wither-Runde.** ⚔️
 
 </div>

@@ -1,0 +1,103 @@
+name: "🐛 Fehler melden"
+description: "Etwas funktioniert in eurer Chunk Mob Challenge nicht wie erwartet?"
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Beschreibt euren Fehler, damit wir ihn nachvollziehen können.
+        Sucht bitte vorher kurz in den bestehenden Issues, ob er bereits gemeldet wurde.
+
+        **Wichtig:** Entfernt Passwörter, private Serveradressen und andere persönliche
+        Daten aus Logs und Screenshots. Ladet keine vollständige `state.yml` ungeprüft hoch.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Was ist passiert?
+      description: Beschreibt den Fehler und was stattdessen passieren sollte.
+      placeholder: "Nach dem Tod des Challenge-Mobs blieb die Border geschlossen. Ich hätte erwartet, dass ich in den nächsten Chunk gehen kann."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Wie lässt sich der Fehler wiederholen?
+      description: Schreibt die Schritte möglichst genau auf. Falls der Fehler nur einmal auftrat, gebt das bitte an.
+      placeholder: |
+        1. Run mit /cc start starten.
+        2. …
+        3. …
+    validations:
+      required: true
+
+  - type: input
+    id: plugin_version
+    attributes:
+      label: Plugin-Version
+      description: Im Spiel oder in der Serverkonsole mit /version ChunkMobChallenge nachsehen (in der Konsole ohne /).
+      placeholder: "z. B. 1.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: server_version
+    attributes:
+      label: Minecraft- und Paper-Version
+      description: Bitte die vollständige Ausgabe von /version angeben, inklusive Minecraft-Version und Paper-Build.
+      placeholder: "z. B. Paper 26.3 Build 194"
+    validations:
+      required: true
+
+  - type: input
+    id: java_version
+    attributes:
+      label: Java-Version des Servers
+      description: Falls bekannt, Ausgabe von java -version auf dem Server angeben.
+      placeholder: "z. B. OpenJDK 25.0.4"
+
+  - type: dropdown
+    id: game_mode
+    attributes:
+      label: Wie spielt ihr?
+      options:
+        - Solo
+        - Koop
+        - Nicht bekannt
+
+  - type: dropdown
+    id: hardcore
+    attributes:
+      label: Ist Hardcore aktiviert?
+      options:
+        - "Nein"
+        - "Ja"
+        - Nicht bekannt
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Welche Runde war betroffen?
+      description: Falls bekannt, nennt Mob, Dimension und Chunk. War es direkt nach dem Start, einem Tod, Logout oder Serverneustart? Habt ihr die Mob-Auswahl angepasst?
+      placeholder: "z. B. Creeper in der Oberwelt, Chunk 12/-4; direkt nach einer Explosion."
+
+  - type: textarea
+    id: status
+    attributes:
+      label: Ausgabe von /cc status
+      description: Falls möglich, fügt hier den Status zum Zeitpunkt des Fehlers ein.
+      render: text
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevante Konsolenmeldungen
+      description: Fügt Meldungen rund um den Fehler ein. Bei einer Fehlermeldung bitte den vollständigen Stacktrace angeben. Private Daten vorher entfernen.
+      render: text
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Screenshots und weitere Informationen
+      description: Screenshots oder kurze Clips helfen besonders bei Border-, Nametag-, Glowing- und Bossbar-Problemen. Nennt hier auch weitere Plugins oder Client-Mods, die mit dem Fehler zusammenhängen könnten.

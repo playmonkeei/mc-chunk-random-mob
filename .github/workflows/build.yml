@@ -5,14 +5,37 @@ on:
     branches:
       - main
   pull_request:
+  workflow_call:
 
 permissions:
   contents: read
 
 jobs:
-  build:
-    name: Test and build with Java 25
+  versions:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.versions.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v6
+      - id: versions
+        name: Read pinned Paper versions
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          rows = [line.split() for line in Path("test-servers/paper-versions.tsv").read_text().splitlines() if line.strip() and not line.startswith("#")]
+          matrix = {"include": [{"minecraft": version, "api": f"{version}.build.{build}-{channel}"} for version, build, channel, sha in rows]}
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write(f"matrix={json.dumps(matrix)}\n")
+          PY
+
+  build:
+    name: Paper ${{ matrix.minecraft }} / Java 25
+    needs: versions
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.versions.outputs.matrix) }}
 
     steps:
       - name: Check out repository
@@ -28,5 +51,20 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x gradlew
 
-      - name: Run tests and build plugin
+      - name: Compile and test against target API
+        run: ./gradlew clean test build --no-daemon -PpaperApiVersion=${{ matrix.api }}
+
+      - name: Build release JAR against oldest supported API
         run: ./gradlew clean test build --no-daemon
+
+      - name: Smoke test release JAR on target server
+        run: python3 scripts/smoke-test-server.py "${{ matrix.minecraft }}" "$(./gradlew -q printPluginJar)"
+
+      - name: Upload server logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-${{ matrix.minecraft }}-logs
+          path: |
+            build/smoke-servers/${{ matrix.minecraft }}/logs/latest.log
+            build/smoke-servers/${{ matrix.minecraft }}/smoke-test.log

@@ -772,7 +772,7 @@ public final class ChallengeService implements Listener {
         if (entity instanceof Mob mob) {
             if (mob instanceof EnderDragon) {
                 AttributeInstance scale = mob.getAttribute(Attribute.SCALE);
-                if (scale != null) scale.setBaseValue(Attribute.SCALE.getDefaultValue());
+                if (scale != null) scale.setBaseValue(scale.getDefaultValue());
             }
             mob.setAI(true);
             mob.setRemoveWhenFarAway(true);

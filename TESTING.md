@@ -1,12 +1,29 @@
 # Chunk Mob Challenge – manuelle Testcheckliste
 
-Diese Checkliste testet dieselbe Plugin-JAR auf Paper 26.1.2 und 26.2. Alle
-Tests sollten zunächst auf 26.1.2 und danach noch einmal auf 26.2 ausgeführt
-werden.
+Diese Checkliste testet dieselbe Plugin-JAR auf Paper 26.1.1, 26.1.2, 26.2
+und 26.3. Die Gameplay-Tests müssen auf jeder Zielversion ausgeführt werden.
+Die bestehenden Häkchen dokumentieren die unten genannten früheren Tests und
+stellen keine Gameplay-Bestätigung für 26.1.1 oder 26.3 dar.
 
 ## Aktueller Teststand
 
-Letzte Aktualisierung: **5. September 2026**
+Letzte Aktualisierung: **16. Oktober 2026**
+
+### Kompatibilitätsprüfung für 1.1.0
+
+- Java 25; dieselbe gegen 26.1.1 gebaute Plugin-JAR auf allen Zielservern.
+- API-Builds und Unit-Tests: 26.1.1 Build 29 (Alpha), 26.1.2 Build 74,
+  26.2 Build 134 und 26.3 Build 194 erfolgreich.
+- Isolierte Serverchecks auf allen vier Builds: Plugin aktiviert, Mobpool erzeugt,
+  Pluginversion abgefragt, `/cc status`, `/cc reload` und sauberer Shutdown.
+- Vollständige Gameplay-Runs auf 26.1.1 und 26.3 sind noch offen.
+- Reproduzierbar über `scripts/smoke-test-server.py`; Logs unter
+  `build/smoke-servers/<Version>/smoke-test.log`. Die Checks laufen auch in CI
+  und vor Releases. Builds und Prüfsummen: `test-servers/paper-versions.tsv`.
+- 26.1/26.1.0 besitzt keinen eigenen Paper-Download; 26.1.1 ist nur als
+  Paper-Alpha verfügbar.
+
+### Bisherige manuelle Tests für 1.0.0 (5. September 2026)
 
 - Manuell getestet: **Paper 26.2 Build 121**, Solo mit `playmonkeei`
 - Paper **26.1.2 Build 74**: Server- und Pluginstart mit 89 zur Laufzeit
@@ -20,8 +37,8 @@ Letzte Aktualisierung: **5. September 2026**
   Creeper-Selbstexplosion beendete exakt einmal die Runde ohne Recovery.
 - Automatisch gebaut/getestet: **Paper API 26.1.2 Build 74**
 - Gegenkompiliert: **Paper API 26.2 Build 121**
-- `[x]` bedeutet praktisch bestätigt; `[ ]` bleibt offen oder muss auf der
-  zweiten Serverversion erneut geprüft werden.
+- `[x]` bedeutet praktisch bestätigt; `[ ]` bleibt offen oder muss auf weiteren
+  Serverversionen erneut geprüft werden.
 - Alle vorgesehenen Solo-, Hardcore- und Koop-Funktionsblöcke wurden praktisch
   bestätigt. Der anschließend ergänzte Bossbar-Schalter benötigt noch den unten
   beschriebenen kurzen Nachtest.
@@ -34,33 +51,35 @@ Letzte Aktualisierung: **5. September 2026**
 Voraussetzungen:
 
 - Java 25
-- Minecraft-Java-Clients für 26.1.2 und 26.2
+- Minecraft-Java-Clients für 26.1.1, 26.1.2, 26.2 und 26.3
 - Zustimmung zu [Mojangs EULA](https://aka.ms/MinecraftEULA)
 
-Einmalig beide Paper-Versionen herunterladen, Prüfsummen kontrollieren, das
-Plugin bauen und in beide Server kopieren:
+Einmalig alle vier Paper-Versionen herunterladen, Prüfsummen kontrollieren, das
+Plugin bauen und in alle Server kopieren:
 
 ```bash
 ./scripts/setup-test-servers.sh
 ```
 
-Paper 26.1.2 starten:
+Paper 26.1.1 (Alpha) oder 26.1.2 starten:
 
 ```bash
+./scripts/start-test-server.sh 26.1.1
 ./scripts/start-test-server.sh 26.1.2
 ```
 
 Verbindung: `localhost` beziehungsweise `127.0.0.1:25565`
 
-Paper 26.2 starten:
+Paper 26.2 oder 26.3 starten:
 
 ```bash
 ./scripts/start-test-server.sh 26.2
+./scripts/start-test-server.sh 26.3
 ```
 
 Verbindung: `localhost` beziehungsweise `127.0.0.1:25565`
 
-Beide Testserver benutzen den Standardport 25565 und müssen deshalb nacheinander,
+Alle vier Testserver benutzen den Standardport 25565 und müssen deshalb nacheinander,
 nicht gleichzeitig, gestartet werden.
 
 Beim ersten Beitritt in der Serverkonsole ausführen:
